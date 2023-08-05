@@ -1,0 +1,25 @@
+<md:EntityDescriptor
+    xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata"
+    entityID="apiportalafin.intranet">
+    <md:SPSSODescriptor
+        AuthnRequestsSigned="true"
+        WantAssertionsSigned="true"
+        protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified</md:NameIDFormat>
+        <md:AssertionConsumerService
+            Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"
+            Location="coloque o endereço que ira receber a resposta do provedor de autenticação" />
+        <md:SingleLogoutService
+            Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
+            Location="coloque o endereço que será chamado pelo provedor de autenticação para fazer o logout" />
+        <md:KeyDescriptor use="signing">
+            <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+                <ds:X509Data>
+                    <ds:X509Certificate>
+"Coloque aqui a chave publica da sua aplicação"
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </md:KeyDescriptor>
+    </md:SPSSODescriptor>
+</md:EntityDescriptor>
